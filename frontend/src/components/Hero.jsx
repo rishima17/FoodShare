@@ -13,7 +13,7 @@ const Hero = () => {
           to nearby NGOs. Every donation helps ensure excess food reaches those
           who need it most, promoting community power and sustainability.
         </p>
-        <a href="#donate" className="cta-button">
+        <a href="/login" className="cta-button">
           Donate Food Today <i className="fas fa-heart"></i>
         </a>
       </div>

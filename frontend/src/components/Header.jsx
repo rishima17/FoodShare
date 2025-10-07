@@ -2,9 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-
-
-
 const Header = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const navigate = useNavigate();
@@ -15,11 +12,11 @@ const Header = () => {
   }, []);
 
   const handleLogout = () => {
-  localStorage.removeItem("token");
-  localStorage.removeItem("rememberMe");
-  setLoggedIn(false); // update header immediately
-  navigate("/login"); // react-router navigation
-};
+    localStorage.removeItem("token");
+    localStorage.removeItem("rememberMe");
+    setLoggedIn(false); // update header immediately
+    navigate("/login"); // react-router navigation
+  };
 
   const toggleMenu = () => {
     document.getElementById("navLinks").classList.toggle("active");
@@ -40,13 +37,13 @@ const Header = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/">About Us</Link>
+            <Link to="/about-us">About Us</Link>
           </li>
           <li>
             <Link to="/contact">Contact Us</Link>
           </li>
           <li>
-            <Link to="/">Food Partner</Link>
+            <Link to="/food-partner">Food Partner</Link>
           </li>
           {!loggedIn && (
             <li>

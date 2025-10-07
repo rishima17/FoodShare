@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { FaUserPlus, FaUser, FaEnvelope, FaLock, FaArrowLeft } from "react-icons/fa";
+import {
+  FaUserPlus,
+  FaUser,
+  FaEnvelope,
+  FaLock,
+  FaArrowLeft,
+} from "react-icons/fa";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -27,8 +33,8 @@ const Register = () => {
 
     try {
       const res = await axios.post(
-        "https://leftoverfood-donation.onrender.com/api/auth/register",
-        { username, email, password ,confirmPassword },
+        "http://localhost:3000/api/auth/register",
+        { username, email, password, confirmPassword },
         { withCredentials: true } // if backend uses cookies
       );
 
@@ -65,7 +71,7 @@ const Register = () => {
   };
 
   return (
-     <>
+    <>
       <style>{`
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
@@ -84,6 +90,7 @@ const Register = () => {
           min-height: 100vh;
           display: flex; align-items: center; justify-content: center; padding: 2rem;
         }
+          .none{text-decoration:none;}
         .register-container {
           background: var(--white);
           border-radius: 20px;
@@ -127,7 +134,7 @@ const Register = () => {
         .back-home a:hover { color: var(--primary-light); }
         .form-message { text-align: center; margin-top: 1rem; color: var(--accent-green); font-weight: 600; }
       `}</style>
-   <div className="register-container">
+      <div className="register-container">
         <div className="register-header">
           <FaUserPlus />
           <h2>Join Our Community</h2>
@@ -200,25 +207,25 @@ const Register = () => {
               />
             </div>
           </div>
-        {/* username, email, password, confirm password inputs */}
-        <button type="submit" className="register-btn">
-         <Link to="/choose-role"> <FaUserPlus /> Create Account</Link>
-        </button>
+          {/* username, email, password, confirm password inputs */}
+          <button type="submit" className="register-btn">
+            <FaUserPlus /> Create Account
+          </button>
 
-        <div className="login-link">
-          Already have an account? <Link to="/login">Login Here</Link>
-        </div>
+          <div className="login-link">
+            Already have an account? <Link to="/login">Login Here</Link>
+          </div>
 
-        <div className="back-home">
-          <Link to="/dashboard">
-            <FaArrowLeft /> Back to Home
-          </Link>
-        </div>
-      </form>
+          <div className="back-home">
+            <Link to="/dashboard" className="none">
+              <FaArrowLeft /> Back to Home
+            </Link>
+          </div>
+        </form>
 
-      {message && <div className="form-message">{message}</div>}
-    </div>
-     </>
+        {message && <div className="form-message">{message}</div>}
+      </div>
+    </>
   );
 };
 

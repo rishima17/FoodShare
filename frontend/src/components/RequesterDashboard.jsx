@@ -1,5 +1,5 @@
 import React from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const RequesterDashboard = () => {
   const navigate = useNavigate();
@@ -94,6 +94,7 @@ const styles = {
     padding: "0.7rem 1.5rem",
     cursor: "pointer",
     fontWeight: "600",
+    textDecoration: "none",
   },
 };
 

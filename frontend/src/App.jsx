@@ -8,6 +8,8 @@ import RequesterDashboard from "./components/RequesterDashboard";
 import DonorForm from "./components/DonorForm";
 import RequestorForm from "./components/RequestorForm";
 import ContactUs from "./components/Contact";
+import MissionVision from "./components/MissionVision";
+import FoodPartner from "./components/FoodPartner";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Route path="/" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/about-us" element={<MissionVision />} />
+        <Route path="/food-partner" element={<FoodPartner />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/contact" element={<ContactUs />} />
 

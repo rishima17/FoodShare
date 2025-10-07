@@ -23,132 +23,176 @@ const DonorForm = () => {
     e.preventDefault();
     console.log("Donation submitted:", { donorType, ...formData });
     alert("✅ Donation submitted successfully!");
-    navigate("/dashboard"); // redirect after submission
+    navigate("/dashboard");
   };
 
   return (
-    <div style={styles.page}>
-      <div style={styles.header}>
-        <h1>
-          {donorType === "restaurant"
-            ? "🍴 Restaurant Donation Form"
-            : "🏠 Individual Donation Form"}
-        </h1>
-        <p>Provide your food donation details to help those in need.</p>
+    <>
+      <style>{`
+        @media (max-width: 768px) {
+          .form-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .form-card {
+            padding: 1.5rem !important;
+            width: 90% !important;
+          }
+          .submit-btn, .back-btn {
+            width: 100% !important;
+            padding: 0.9rem !important;
+          }
+          .button-group {
+            flex-direction: column !important;
+            align-items: stretch !important;
+          }
+          h1 {
+            font-size: 1.5rem !important;
+          }
+          p {
+            font-size: 0.95rem !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .page {
+            padding: 2rem 0.5rem !important;
+          }
+          .form-card {
+            border-radius: 15px !important;
+          }
+        }
+      `}</style>
+
+      <div style={styles.page} className="page">
+        <div style={styles.header}>
+          <h1>
+            {donorType === "restaurant"
+              ? "🍴 Restaurant Donation Form"
+              : "🏠 Individual Donation Form"}
+          </h1>
+          <p>Provide your food donation details to help those in need.</p>
+        </div>
+
+        <div style={styles.formCard} className="form-card">
+          <form style={styles.form} onSubmit={handleSubmit}>
+            <div style={styles.formGrid} className="form-grid">
+              <div style={styles.formGroup}>
+                <label style={styles.label}>Full Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  style={styles.input}
+                  placeholder="Enter your name"
+                />
+              </div>
+
+              <div style={styles.formGroup}>
+                <label style={styles.label}>Contact Number</label>
+                <input
+                  type="tel"
+                  name="contact"
+                  value={formData.contact}
+                  onChange={handleChange}
+                  required
+                  style={styles.input}
+                  placeholder="Enter phone number"
+                />
+              </div>
+            </div>
+
+            <div style={styles.formGrid} className="form-grid">
+              <div style={styles.formGroup}>
+                <label style={styles.label}>Type of Food</label>
+                <input
+                  type="text"
+                  name="foodType"
+                  value={formData.foodType}
+                  onChange={handleChange}
+                  required
+                  style={styles.input}
+                  placeholder="e.g. Cooked Meals, Packaged Items"
+                />
+              </div>
+
+              <div style={styles.formGroup}>
+                <label style={styles.label}>Quantity</label>
+                <input
+                  type="text"
+                  name="quantity"
+                  value={formData.quantity}
+                  onChange={handleChange}
+                  required
+                  style={styles.input}
+                  placeholder="e.g. 10 servings"
+                />
+              </div>
+            </div>
+
+            <div style={styles.formGroup}>
+              <label style={styles.label}>Best Before / Expiry Time</label>
+              <input
+                type="datetime-local"
+                name="expiryTime"
+                value={formData.expiryTime}
+                onChange={handleChange}
+                required
+                style={styles.input}
+              />
+            </div>
+
+            <div style={styles.formGroup}>
+              <label style={styles.label}>Pickup Address</label>
+              <textarea
+                name="address"
+                rows="3"
+                value={formData.address}
+                onChange={handleChange}
+                required
+                style={styles.textarea}
+                placeholder="Enter the pickup location"
+              />
+            </div>
+
+            <div style={styles.formGroup}>
+              <label style={styles.label}>Additional Notes (Optional)</label>
+              <textarea
+                name="notes"
+                rows="2"
+                value={formData.notes}
+                onChange={handleChange}
+                style={styles.textarea}
+                placeholder="Any special instructions..."
+              />
+            </div>
+
+            <div style={styles.buttonGroup} className="button-group">
+              <button
+                type="submit"
+                style={styles.submitBtn}
+                className="submit-btn"
+              >
+                Submit Donation
+              </button>
+
+              <Link
+                to="/donor-dashboard"
+                style={styles.backBtn}
+                className="back-btn"
+              >
+                ← Back
+              </Link>
+            </div>
+          </form>
+        </div>
       </div>
-
-      <div style={styles.formCard}>
-        <form style={styles.form} onSubmit={handleSubmit}>
-          <div style={styles.formGrid}>
-            <div style={styles.formGroup}>
-              <label style={styles.label}>Full Name</label>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                style={styles.input}
-                placeholder="Enter your name"
-              />
-            </div>
-
-            <div style={styles.formGroup}>
-              <label style={styles.label}>Contact Number</label>
-              <input
-                type="tel"
-                name="contact"
-                value={formData.contact}
-                onChange={handleChange}
-                required
-                style={styles.input}
-                placeholder="Enter phone number"
-              />
-            </div>
-          </div>
-
-          <div style={styles.formGrid}>
-            <div style={styles.formGroup}>
-              <label style={styles.label}>Type of Food</label>
-              <input
-                type="text"
-                name="foodType"
-                value={formData.foodType}
-                onChange={handleChange}
-                required
-                style={styles.input}
-                placeholder="e.g. Cooked Meals, Packaged Items"
-              />
-            </div>
-
-            <div style={styles.formGroup}>
-              <label style={styles.label}>Quantity</label>
-              <input
-                type="text"
-                name="quantity"
-                value={formData.quantity}
-                onChange={handleChange}
-                required
-                style={styles.input}
-                placeholder="e.g. 10 servings"
-              />
-            </div>
-          </div>
-
-          <div style={styles.formGroup}>
-            <label style={styles.label}>Best Before / Expiry Time</label>
-            <input
-              type="datetime-local"
-              name="expiryTime"
-              value={formData.expiryTime}
-              onChange={handleChange}
-              required
-              style={styles.input}
-            />
-          </div>
-
-          <div style={styles.formGroup}>
-            <label style={styles.label}>Pickup Address</label>
-            <textarea
-              name="address"
-              rows="3"
-              value={formData.address}
-              onChange={handleChange}
-              required
-              style={styles.textarea}
-              placeholder="Enter the pickup location"
-            />
-          </div>
-
-          <div style={styles.formGroup}>
-            <label style={styles.label}>Additional Notes (Optional)</label>
-            <textarea
-              name="notes"
-              rows="2"
-              value={formData.notes}
-              onChange={handleChange}
-              style={styles.textarea}
-              placeholder="Any special instructions..."
-            />
-          </div>
-
-          <div style={styles.buttonGroup}>
-            <button type="submit" style={styles.submitBtn}>
-              Submit Donation
-            </button>
-
-            {/* Using Link instead of back button */}
-            <Link to="/donor-dashboard" style={styles.backBtn}>
-              ← Back
-            </Link>
-          </div>
-        </form>
-      </div>
-    </div>
+    </>
   );
 };
 
-// styling remains same
+// 🎨 Styling
 const styles = {
   page: {
     minHeight: "100vh",
@@ -172,11 +216,7 @@ const styles = {
     padding: "2.5rem 3rem",
     width: "100%",
     maxWidth: "700px",
-  },
-  title: {
-    color: "#1B4332",
-    fontSize: "1.8rem",
-    fontWeight: "700",
+    transition: "0.3s ease",
   },
   form: {
     display: "flex",
@@ -213,10 +253,6 @@ const styles = {
     resize: "none",
     transition: "0.3s",
   },
-  inputFocus: {
-    borderColor: "#52B788",
-    boxShadow: "0 0 5px rgba(82, 183, 136, 0.4)",
-  },
   buttonGroup: {
     display: "flex",
     justifyContent: "center",
@@ -243,6 +279,8 @@ const styles = {
     padding: "1rem 2rem",
     fontSize: "1rem",
     fontWeight: "600",
+    textAlign: "center",
+    textDecoration: "none",
     cursor: "pointer",
     transition: "0.3s",
   },

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const DonorDashboard = () => {
   const navigate = useNavigate();
@@ -66,6 +66,7 @@ const styles = {
     fontSize: "2rem",
     fontWeight: "700",
   },
+
   subtitle: {
     color: "#2d6a4f",
     marginBottom: "2rem",
@@ -96,6 +97,7 @@ const styles = {
     borderRadius: "8px",
     padding: "0.7rem 1.5rem",
     cursor: "pointer",
+    textDecoration: "none",
     fontWeight: "600",
   },
 };

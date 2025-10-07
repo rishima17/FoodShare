@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
-
+import { useNavigate, Link } from "react-router-dom";
 
 const RequestorForm = () => {
   const navigate = useNavigate();
@@ -158,10 +156,9 @@ const RequestorForm = () => {
             <button type="submit" style={styles.submitBtn}>
               Submit Request
             </button>
-             <Link to="/requester-dashboard" style={styles.backBtn}>
-    ← Back
-  </Link>
-
+            <Link to="/requester-dashboard" style={styles.backBtn}>
+              ← Back
+            </Link>
           </div>
         </form>
       </div>
@@ -169,7 +166,7 @@ const RequestorForm = () => {
   );
 };
 
-// 🌿 Elegant green-glass design (same as donor form)
+// 🌿 Elegant green-glass design + responsive layout
 const styles = {
   page: {
     minHeight: "100vh",
@@ -244,6 +241,7 @@ const styles = {
     justifyContent: "center",
     gap: "1rem",
     marginTop: "1.5rem",
+    flexWrap: "wrap",
   },
   submitBtn: {
     background: "linear-gradient(135deg, #2D6A4F, #1B4332)",
@@ -264,10 +262,20 @@ const styles = {
     borderRadius: "12px",
     padding: "1rem 2rem",
     fontSize: "1rem",
+    textAlign: "center",
     fontWeight: "600",
+    textDecoration: "none", // removes underline
     cursor: "pointer",
     transition: "0.3s",
   },
 };
+
+// ✅ Responsive tweak using inline media query effect
+if (window.innerWidth <= 768) {
+  styles.formCard.padding = "2rem 1.5rem";
+  styles.formGrid.gridTemplateColumns = "1fr";
+  styles.submitBtn.width = "100%";
+  styles.backBtn.width = "100%";
+}
 
 export default RequestorForm;

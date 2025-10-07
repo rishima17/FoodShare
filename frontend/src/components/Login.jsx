@@ -19,7 +19,7 @@ const Login = () => {
 
     try {
       const res = await axios.post(
-        "https://leftoverfood-donation.onrender.com/api/auth/login",
+        "http://localhost:3000/api/auth/login",
         { email, password },
         { withCredentials: true } // if backend uses cookies
       );
@@ -29,7 +29,7 @@ const Login = () => {
 
       navigate("/choose-role"); // client-side redirect
     } catch (err) {
-      setMessage(err.response?.data?.message || "Invalid credentials!");
+      setMessage(err.response?.data?.message + "!" || "Invalid credentials!");
     }
   };
 
@@ -42,6 +42,7 @@ const Login = () => {
           --primary-medium: #2D6A4F;
           --primary-light: #52B788;
           --accent-green: #95D5B2;
+          --error-red:rgba(197,22,22,1);
           --bg-light: #F1F8F5;
           --accent-orange: #F4A261;
           --white: #FFFFFF;
@@ -53,6 +54,7 @@ const Login = () => {
           min-height: 100vh;
           display: flex; align-items: center; justify-content: center; padding: 2rem;
         }
+          .none{text-decoration:none;}
         .login-container {
           background: var(--white);
           border-radius: 20px;
@@ -98,9 +100,9 @@ const Login = () => {
         .back-home { text-align: center; margin-top: 1rem; }
         .back-home a { color: var(--primary-medium); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; }
         .back-home a:hover { color: var(--primary-light); }
-        .form-message { text-align: center; margin-top: 1rem; color: var(--accent-green); font-weight: 600; }
+        .form-message { text-align: center; color: var(--error-red); margin-bottom:1rem;font-weight: 500; font-size:1rem; }
       `}</style>
-    
+
       <div className="login-container">
         <div className="login-header">
           <FaSignInAlt />
@@ -150,29 +152,28 @@ const Login = () => {
               />{" "}
               Remember Me
             </label>
-          <Link to="/forgot-password" className="forgot-password">
-            Forgot Password?
-          </Link>
-        </div>
+            <Link to="/forgot-password" className="forgot-password">
+              Forgot Password?
+            </Link>
+          </div>
 
-        <button type="submit" className="login-btn">
-          <FaSignInAlt /> Login
-        </button>
+          {message && <div className="form-message">{message}</div>}
+          <button type="submit" className="login-btn">
+            <FaSignInAlt /> Login
+          </button>
 
-        <div className="register-link">
-          Don't have an account? <Link to="/register">Register Now</Link>
-        </div>
+          <div className="register-link">
+            Don't have an account? <Link to="/register">Register Now</Link>
+          </div>
 
-        <div className="back-home">
-          <Link to="/dashboard">
-            <FaArrowLeft /> Back to Home
-          </Link>
-        </div>
-      </form>
-
-      {message && <div className="form-message">{message}</div>}
-    </div>
-      </>
+          <div className="back-home">
+            <Link to="/dashboard" className="none">
+              <FaArrowLeft /> Back to Home
+            </Link>
+          </div>
+        </form>
+      </div>
+    </>
   );
 };
 

@@ -8,7 +8,9 @@ import {
   FaTwitter,
   FaInstagram,
   FaLinkedinIn,
+  FaArrowLeft,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -55,43 +57,132 @@ const ContactUs = () => {
     }
   };
 
+  // Responsive styles
+  const styles = {
+    contactSection: {
+      maxWidth: "1200px",
+      margin: "1rem auto",
+      padding: "2rem",
+    },
+    contactContainer: {
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      gap: "3rem",
+      background: "#fff",
+      borderRadius: "20px",
+      boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+      overflow: "hidden",
+    },
+    contactInfo: {
+      background: "linear-gradient(135deg, #2D6A4F 0%, #52B788 100%)",
+      color: "#fff",
+      padding: "3rem",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+    },
+    contactInfoTitle: { fontSize: "2rem", marginBottom: "1rem" },
+    contactInfoText: { opacity: 0.9, marginBottom: "2rem" },
+    infoItem: { display: "flex", gap: "1.5rem" },
+    infoIcon: {
+      width: "50px",
+      height: "50px",
+      background: "rgba(255,255,255,0.2)",
+      borderRadius: "50%",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: "1.2rem",
+    },
+    infoText: { opacity: 0.9, margin: 0 },
+    socialIcons: {
+      display: "flex",
+      gap: "1rem",
+      marginTop: "1rem",
+      flexWrap: "wrap",
+    },
+    socialIcon: {
+      width: "45px",
+      height: "45px",
+      background: "rgba(255,255,255,0.2)",
+      borderRadius: "50%",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      color: "#fff",
+      fontSize: "1.3rem",
+      transition: "all 0.3s ease",
+      cursor: "pointer",
+    },
+    contactFormContainer: { padding: "3rem" },
+    formRow: {
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      gap: "1.5rem",
+      marginBottom: "1.5rem",
+    },
+    formSingle: { marginBottom: "1.5rem" },
+    inputStyle: {
+      width: "100%",
+      padding: "0.8rem 1rem",
+      borderRadius: "10px",
+      border: "1px solid #ccc",
+      outline: "none",
+      fontSize: "1rem",
+      transition: "border 0.3s ease",
+    },
+    textareaStyle: {
+      minHeight: "120px",
+      resize: "none",
+      width: "100%",
+      padding: "0.8rem 1rem",
+      borderRadius: "10px",
+      border: "1px solid #ccc",
+      outline: "none",
+      fontSize: "1rem",
+    },
+    buttonStyle: {
+      background: "linear-gradient(135deg, #F4A261, #E76F51)",
+      color: "#fff",
+      border: "none",
+      borderRadius: "50px",
+      padding: "1rem 3rem",
+      fontSize: "1.1rem",
+      fontWeight: "600",
+      cursor: "pointer",
+      transition: "transform 0.2s ease, box-shadow 0.3s ease",
+    },
+    statusMessage: { marginTop: "1rem", color: "#2D6A4F" },
+    backLink: {
+      marginTop: "2rem",
+      color: "#2D6A4F",
+      textDecoration: "none",
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "0.5rem",
+    },
+  };
+
+  // Media query adjustments
+  const isMobile = window.innerWidth <= 768;
+
+  const containerStyle = {
+    ...styles.contactContainer,
+    gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+  };
+
+  const formRowStyle = {
+    ...styles.formRow,
+    gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+  };
+
   return (
-    <div
-      className="contact-section"
-      style={{
-        maxWidth: "1300px",
-        margin: "4rem auto",
-        padding: "2rem",
-      }}
-    >
-      <div
-        className="contact-container"
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "3rem",
-          background: "#fff",
-          borderRadius: "20px",
-          boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
-          overflow: "hidden",
-        }}
-      >
+    <div style={styles.contactSection}>
+      <div style={containerStyle}>
         {/* Left Section — Contact Info */}
-        <div
-          className="contact-info"
-          style={{
-            background: "linear-gradient(135deg, #2D6A4F 0%, #52B788 100%)",
-            color: "#fff",
-            padding: "3rem",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-          }}
-        >
-          <h2 style={{ fontSize: "2rem", marginBottom: "1rem" }}>
-            Contact Information
-          </h2>
-          <p style={{ opacity: 0.9, marginBottom: "2rem" }}>
+        <div style={styles.contactInfo}>
+          <h2 style={styles.contactInfoTitle}>Contact Information</h2>
+          <p style={styles.contactInfoText}>
             Fill out the form and our team will get back to you within 24 hours.
           </p>
 
@@ -115,25 +206,12 @@ const ContactUs = () => {
                 lines: ["Sector 15, Faridabad", "Haryana 121007, India"],
               },
             ].map((item, idx) => (
-              <div key={idx} style={{ display: "flex", gap: "1.5rem" }}>
-                <div
-                  style={{
-                    width: "50px",
-                    height: "50px",
-                    background: "rgba(255,255,255,0.2)",
-                    borderRadius: "50%",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: "1.2rem",
-                  }}
-                >
-                  {item.icon}
-                </div>
+              <div key={idx} style={styles.infoItem}>
+                <div style={styles.infoIcon}>{item.icon}</div>
                 <div>
-                  <h3 style={{ marginBottom: "0.3rem" }}>{item.title}</h3>
+                  <h3>{item.title}</h3>
                   {item.lines.map((line, i) => (
-                    <p key={i} style={{ opacity: 0.9, margin: 0 }}>
+                    <p key={i} style={styles.infoText}>
                       {line}
                     </p>
                   ))}
@@ -145,36 +223,24 @@ const ContactUs = () => {
           {/* Social Links */}
           <div style={{ marginTop: "3rem" }}>
             <h3>Follow Us</h3>
-            <div style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
+            <div style={styles.socialIcons}>
               {[FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn].map(
                 (Icon, i) => (
-                  <a
+                  <div
                     key={i}
-                    href="#"
-                    style={{
-                      width: "45px",
-                      height: "45px",
-                      background: "rgba(255,255,255,0.2)",
-                      borderRadius: "50%",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      color: "#fff",
-                      fontSize: "1.3rem",
-                      transition: "all 0.3s ease",
+                    style={styles.socialIcon}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = "#fff";
+                      e.currentTarget.style.color = "#2D6A4F";
                     }}
-                    onMouseEnter={(e) =>
-                      (e.currentTarget.style.background = "#fff") &
-                      (e.currentTarget.style.color = "#2D6A4F")
-                    }
-                    onMouseLeave={(e) =>
-                      (e.currentTarget.style.background =
-                        "rgba(255,255,255,0.2)") &
-                      (e.currentTarget.style.color = "#fff")
-                    }
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background =
+                        "rgba(255,255,255,0.2)";
+                      e.currentTarget.style.color = "#fff";
+                    }}
                   >
                     <Icon />
-                  </a>
+                  </div>
                 )
               )}
             </div>
@@ -182,7 +248,7 @@ const ContactUs = () => {
         </div>
 
         {/* Right Section — Contact Form */}
-        <div className="contact-form-container" style={{ padding: "3rem" }}>
+        <div style={styles.contactFormContainer}>
           <h2 style={{ color: "#1b4332", marginBottom: "1rem" }}>
             Send Message
           </h2>
@@ -191,14 +257,7 @@ const ContactUs = () => {
           </p>
 
           <form onSubmit={handleSubmit}>
-            {/* Row 1 */}
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: "1.5rem",
-              }}
-            >
+            <div style={formRowStyle}>
               <div>
                 <label>First Name</label>
                 <input
@@ -207,7 +266,7 @@ const ContactUs = () => {
                   value={formData.firstName}
                   onChange={handleChange}
                   required
-                  style={inputStyle}
+                  style={styles.inputStyle}
                 />
               </div>
               <div>
@@ -218,20 +277,12 @@ const ContactUs = () => {
                   value={formData.lastName}
                   onChange={handleChange}
                   required
-                  style={inputStyle}
+                  style={styles.inputStyle}
                 />
               </div>
             </div>
 
-            {/* Row 2 */}
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: "1.5rem",
-                marginTop: "1.5rem",
-              }}
-            >
+            <div style={formRowStyle}>
               <div>
                 <label>Email</label>
                 <input
@@ -240,7 +291,7 @@ const ContactUs = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  style={inputStyle}
+                  style={styles.inputStyle}
                 />
               </div>
               <div>
@@ -250,20 +301,19 @@ const ContactUs = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  style={inputStyle}
+                  style={styles.inputStyle}
                 />
               </div>
             </div>
 
-            {/* Subject */}
-            <div style={{ marginTop: "1.5rem" }}>
+            <div style={styles.formSingle}>
               <label>Subject</label>
               <select
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
                 required
-                style={inputStyle}
+                style={styles.inputStyle}
               >
                 <option value="">Select a subject</option>
                 <option value="general">General Inquiry</option>
@@ -273,37 +323,20 @@ const ContactUs = () => {
               </select>
             </div>
 
-            {/* Message */}
-            <div style={{ marginTop: "1.5rem" }}>
+            <div style={styles.formSingle}>
               <label>Message</label>
               <textarea
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
                 required
-                style={{
-                  ...inputStyle,
-                  minHeight: "120px",
-                  resize: "none",
-                }}
+                style={styles.textareaStyle}
               ></textarea>
             </div>
 
-            {/* Button */}
             <button
               type="submit"
-              style={{
-                background: "linear-gradient(135deg, #F4A261, #E76F51)",
-                color: "#fff",
-                border: "none",
-                borderRadius: "50px",
-                padding: "1rem 3rem",
-                marginTop: "2rem",
-                fontSize: "1.1rem",
-                fontWeight: "600",
-                cursor: "pointer",
-                transition: "transform 0.2s ease, box-shadow 0.3s ease",
-              }}
+              style={styles.buttonStyle}
               onMouseEnter={(e) =>
                 (e.currentTarget.style.boxShadow =
                   "0 5px 15px rgba(231,111,81,0.4)")
@@ -314,26 +347,22 @@ const ContactUs = () => {
             </button>
 
             {statusMessage && (
-              <p style={{ marginTop: "1rem", color: "#2D6A4F" }}>
-                {statusMessage}
-              </p>
+              <p style={styles.statusMessage}>{statusMessage}</p>
             )}
           </form>
+
+          <div style={styles.backLink}>
+            <Link
+              to="/dashboard"
+              style={{ color: "#2D6A4F", textDecoration: "none" }}
+            >
+              <FaArrowLeft /> Back to Dashboard
+            </Link>
+          </div>
         </div>
       </div>
     </div>
   );
-};
-
-const inputStyle = {
-  width: "100%",
-  padding: "0.8rem 1rem",
-  borderRadius: "10px",
-  border: "1px solid #ccc",
-  outline: "none",
-  marginTop: "0.5rem",
-  fontSize: "1rem",
-  transition: "border 0.3s ease",
 };
 
 export default ContactUs;
