@@ -125,7 +125,7 @@ MongoDB Atlas connection string
 npm or yarn
 
 Clone the Repository
-git clone https://github.com/your-username/LeftOver-Food-Donation.git
+git clone https://github.com/rishima17/LeftOver-Food-Donation.git
 cd LeftOver-Food-Donation
 
 Backend Setup
