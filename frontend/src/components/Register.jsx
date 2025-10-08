@@ -33,7 +33,7 @@ const Register = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/auth/register",
+        "https://leftover-food-donation.onrender.com/api/auth/register",
         { username, email, password, confirmPassword },
         { withCredentials: true } // if backend uses cookies
       );
