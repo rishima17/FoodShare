@@ -1,120 +1,198 @@
-# Leftover Food Donation Platform
+🥗 LeftOver Food Donation Platform
 
-A full-stack web application that connects food donors (individuals and restaurants) with those in need. Built using **MERN stack** with secure authentication and responsive UI.
+A web platform built using the MERN Stack that connects food donors (restaurants, hotels, cafés, individuals) with NGOs and people in need — reducing food waste and helping communities.
 
-## Demo
+🚀 Live Links
 
-- Frontend (Vercel): [https://your-vercel-frontend.vercel.app](https://left-over-food-donation-git-main-rishimas-projects.vercel.app/)  
-- Backend (Render): [https://leftoverfood-donation.onrender.com](https://leftoverfood-donation-1.onrender.com/)  
+Frontend: https://leftover-food-donation.vercel.app
 
-> Note: For CORS and access, the frontend URL must be allowed in the backend configuration.
+Backend: https://leftover-food-donation.onrender.com
 
----
+✨ Features
+👥 User & Auth
 
-## Features
+User registration and login with secure validation
 
-- User registration & login with JWT authentication
-- Role selection: Individual donor or Restaurant donor
-- Responsive dashboard for donors
-- Food donation management
-- Password strength validation
-- Remember me and logout functionality
+JWT-based authentication
 
----
+Error handling and feedback messages
 
-## Tech Stack
+🏨 Food Partner System
 
-- **Frontend:** React, React Router, Axios, React Icons, Tailwind CSS / Custom CSS  
-- **Backend:** Node.js, Express.js, MongoDB, Mongoose  
-- **Deployment:** Frontend on Vercel, Backend on Render
+Register as a Restaurant, Hotel, Cafe, or Individual
 
----
+Provide location, contact details, and description
 
-## Getting Started
+Automatically stored in the backend database
 
-### Prerequisites
+Helps identify potential food donors
 
-- Node.js v18+  
-- npm or yarn  
-- MongoDB connection string  
+📬 Contact Form
 
-### Installation
+Simple contact form for users to send queries or feedback
 
-1. **Clone the repository:**
-```bash
-git clone https://github.com/your-username/food-donation.git
-cd food-donation
-Frontend setup:
+Stores messages in MongoDB
 
-bash
-Copy code
-cd client
+🧑‍💻 Admin
+
+Can access all food partner submissions and messages
+
+Ready for dashboard integration
+
+🌐 General
+
+Modern React UI
+
+Responsive layout
+
+Backend API with validation and error handling
+
+Secure CORS setup for frontend–backend communication
+
+Deployed frontend on Vercel
+
+Deployed backend on Render
+
+🧩 Tech Stack
+
+Frontend:
+
+React.js
+
+React Router DOM
+
+CSS / Inline Styling
+
+Backend:
+
+Node.js
+
+Express.js
+
+MongoDB Atlas
+
+Mongoose ORM
+
+Security & Config:
+
+dotenv (Environment variables)
+
+bcrypt (Password hashing)
+
+jsonwebtoken (JWT Authentication)
+
+cors (Cross-Origin Resource Sharing)
+
+Deployment:
+
+Vercel (Frontend)
+
+Render (Backend)
+
+⚙️ Project Structure
+LeftOver-Food-Donation/
+├── backend/
+│   ├── controllers/
+│   │   ├── authController.js
+│   │   ├── contactController.js
+│   │   ├── foodpartnerController.js
+│   ├── models/
+│   │   ├── userModel.js
+│   │   ├── foodpartner.js
+│   ├── routes/
+│   │   ├── authRoute.js
+│   │   ├── contactRoute.js
+│   │   ├── foodpartnerRoute.js
+│   ├── server.js
+│   ├── .env
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── App.jsx
+│   │   ├── index.js
+│
+└── README.md
+
+📦 Installation & Setup
+Prerequisites
+
+Node.js (v16 or later)
+
+MongoDB Atlas connection string
+
+npm or yarn
+
+Clone the Repository
+git clone https://github.com/your-username/LeftOver-Food-Donation.git
+cd LeftOver-Food-Donation
+
+Backend Setup
+cd backend
 npm install
-npm start
-Backend setup:
 
-bash
-Copy code
-cd server
+
+Create a .env file and add:
+
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+
+
+Run the backend:
+
+npm start
+
+Frontend Setup
+cd frontend
 npm install
 npm run dev
-Make sure to add a .env file in the backend folder:
 
-env
-Copy code
-PORT=3000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-FRONTEND_URL=https://your-vercel-frontend.vercel.app
-CORS setup in backend (Express):
 
-js
-Copy code
-import cors from "cors";
+Open the app in your browser:
+👉 http://localhost:5173
 
-app.use(cors({
-  origin: process.env.FRONTEND_URL,
-  methods: ["GET","POST","PUT","DELETE"],
-  credentials: true
-}));
-API Endpoints
-Auth
+🔐 API Endpoints
+Auth Routes
 Method	Endpoint	Description
 POST	/api/auth/register	Register a new user
 POST	/api/auth/login	Login existing user
-
-Donor
+Food Partner Routes
 Method	Endpoint	Description
-GET	/api/donor/home	Get donor dashboard data
-POST	/api/donor/donate	Submit food donation
+POST	/api/food-partner	Submit food partner registration
+Contact Routes
+Method	Endpoint	Description
+POST	/api/contact	Submit a contact message
+🧠 How It Works
 
-Usage
-Open the frontend URL in your browser.
+Users can register and log in securely using JWT authentication.
 
-Register as a new user.
+Food partners can fill out a form with details about their restaurant, hotel, café, or as an individual donor.
 
-Login to access the donor dashboard.
+The system stores submissions in MongoDB using Mongoose models.
 
-Select your donor role (Individual / Restaurant) to start donating.
+The backend API validates all input before saving.
 
-Contributing
+The frontend communicates with the backend via fetch() requests protected with proper CORS setup.
+
+🤝 Contributing
+
+Contributions are welcome!
+If you want to contribute:
+
 Fork the repository
 
-Create a new branch (git checkout -b feature/xyz)
+Create a new branch (git checkout -b feature-name)
 
 Make your changes
 
-Commit and push (git commit -m "Add xyz" && git push origin feature/xyz)
+Commit (git commit -m "Added feature XYZ")
 
-Create a Pull Request
-
-yaml
-Copy code
-
--
+Push and open a Pull Request
 
 
 
 
 
-
+“Together, let’s reduce food waste and feed more people.”
