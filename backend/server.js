@@ -10,17 +10,19 @@ import foodPartnerRoutes from "./routes/foodpartnerRoute.js";
 dotenv.config();
 const app = express();
 
-// CORS Configuration
+//  CORS Configuration 
 app.use(
   cors({
     origin: [
-      "https://leftover-food-donation.vercel.app/",
-      "http://localhost:5173"
+      "https://leftover-food-donation.vercel.app", //frontend deployed
+      "http://localhost:5173", // for local testing
     ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // include OPTIONS
+    allowedHeaders: ["Content-Type", "Authorization"], // handle preflight properly
     credentials: true,
   })
 );
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
