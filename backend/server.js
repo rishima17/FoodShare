@@ -14,7 +14,7 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "https://left-over-food-donation-git-main-rishimas-projects.vercel.app",
+      "https://leftover-food-donation.vercel.app/",
       "http://localhost:5173"
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
