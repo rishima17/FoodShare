@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -14,12 +14,17 @@ const Header = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("rememberMe");
-    setLoggedIn(false); // update header immediately
-    navigate("/login"); // react-router navigation
+    setLoggedIn(false);
+    navigate("/login");
+    setMenuOpen(false); // close menu on logout (mobile)
   };
 
   const toggleMenu = () => {
-    document.getElementById("navLinks").classList.toggle("active");
+    setMenuOpen(!menuOpen);
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
   };
 
   return (
@@ -29,36 +34,58 @@ const Header = () => {
           <i className="fas fa-leaf"></i>
           <span>FoodShare</span>
         </div>
-        <button className="mobile-menu-toggle" onClick={toggleMenu}>
-          <i className="fas fa-bars"></i>
+
+        {/* Mobile Menu Toggle */}
+        <button
+          className={`mobile-menu-toggle ${menuOpen ? "active" : ""}`}
+          onClick={toggleMenu}
+        >
+          <i className="fas fa-bars open-icon"></i>
+          <i className="fas fa-times close-icon"></i>
         </button>
-        <ul className="nav-links" id="navLinks">
+
+        {/* Navigation Links */}
+        <ul className={`nav-links ${menuOpen ? "active" : ""}`} id="navLinks">
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/" onClick={closeMenu}>
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/about-us">About Us</Link>
+            <Link to="/about-us" onClick={closeMenu}>
+              About Us
+            </Link>
           </li>
           <li>
-            <Link to="/contact">Contact Us</Link>
+            <Link to="/contact" onClick={closeMenu}>
+              Contact Us
+            </Link>
           </li>
           <li>
-            <Link to="/food-partner">Food Partner</Link>
+            <Link to="/food-partner" onClick={closeMenu}>
+              Food Partner
+            </Link>
           </li>
+
           {!loggedIn && (
-            <li>
-              <Link to="/login" className="btn-login">
-                Login
-              </Link>
-            </li>
+            <>
+              <li>
+                <Link to="/login" className="btn-login" onClick={closeMenu}>
+                  Login
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/register"
+                  className="btn-register"
+                  onClick={closeMenu}
+                >
+                  Register
+                </Link>
+              </li>
+            </>
           )}
-          {!loggedIn && (
-            <li>
-              <Link to="/register" className="btn-register">
-                Register
-              </Link>
-            </li>
-          )}
+
           {loggedIn && (
             <li>
               <Link to="/" className="btn-login" onClick={handleLogout}>
