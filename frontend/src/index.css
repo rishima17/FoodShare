@@ -636,3 +636,86 @@ footer {
     font-size: 1.3rem;
   }
 }
+/* ✅ Move hamburger icon to top-right on mobile */
+@media (max-width: 991px) {
+  header {
+    position: relative;
+  }
+
+  nav {
+    position: relative;
+  }
+
+  .mobile-menu-toggle {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.5rem;
+    font-size: 1.8rem;
+    color: var(--white);
+    z-index: 1101;
+  }
+
+  /* Adjust logo and spacing */
+  .logo {
+    flex: 1;
+    justify-content: flex-start;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--primary-dark);
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    display: none;
+    padding: 1.5rem 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
+/* ✅ Show only one icon at a time */
+.mobile-menu-toggle .close-icon {
+  display: none;
+}
+
+.mobile-menu-toggle.active .open-icon {
+  display: none;
+}
+
+.mobile-menu-toggle.active .close-icon {
+  display: inline-block;
+}
+
+/* Optional: make it look neat */
+.mobile-menu-toggle i {
+  font-size: 1.8rem;
+  transition: transform 0.3s ease;
+}
+
+.mobile-menu-toggle.active i.close-icon {
+  transform: rotate(90deg);
+}
+/* ✅ Fix Login and Register button spacing on mobile */
+@media (max-width: 991px) {
+  .nav-links .btn-login,
+  .nav-links .btn-register {
+    margin: 0.3rem 0; /* add vertical space */
+    display: inline-block;
+    text-align: center;
+  }
+
+  /* Optional: make buttons look balanced */
+  .nav-links .btn-login {
+    border-width: 2px;
+  }
+
+  .nav-links .btn-register {
+    background: var(--accent-orange);
+  }
+}
+
