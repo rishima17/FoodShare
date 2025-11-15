@@ -1,0 +1,156 @@
+.food-partner-container {
+  max-width: 1300px;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.food-partner-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .food-partner-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Left Section */
+.left-section {
+  background: linear-gradient(135deg, #2D6A4F 0%, #52B788 100%);
+  color: #fff;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.left-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.left-section p {
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.info-item {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.info-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.info-item h3 {
+  margin: 0;
+}
+
+.info-item p {
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Right Section */
+.right-section {
+  padding: 2rem;
+}
+
+.right-section h2 {
+  color: #1b4332;
+  margin-bottom: 1rem;
+}
+
+.right-section p {
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+form .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+form .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+form input,
+form select,
+form textarea {
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  margin-top: 0.5rem;
+}
+
+form textarea {
+  min-height: 120px;
+  resize: none;
+}
+
+form button {
+  background: linear-gradient(135deg, #F4A261, #E76F51);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 3rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+
+form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.status-message {
+  margin-top: 1rem;
+  color: #2D6A4F;
+  font-weight: 600;
+}
+
+.back-link {
+  margin-top: 2rem;
+  color: #2D6A4F;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}

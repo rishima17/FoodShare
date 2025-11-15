@@ -7,9 +7,10 @@ import DonorDashboard from "./components/DonorDashboard";
 import RequesterDashboard from "./components/RequesterDashboard";
 import DonorForm from "./components/DonorForm";
 import RequestorForm from "./components/RequestorForm";
-import ContactUs from "./components/Contact";
-import MissionVision from "./components/MissionVision";
-import FoodPartner from "./components/FoodPartner";
+import ContactUs from "./components/Contact/Contact";
+
+import FoodPartner from "./components/FoodPartner/FoodPartner";
+import AboutUs from "./components/AboutUs/AboutUs";
 
 function App() {
   return (
@@ -17,9 +18,10 @@ function App() {
       <Routes>
         {/* Public pages */}
         <Route path="/" element={<Dashboard />} />
+        <Route path="/about-us" element={<AboutUs />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/about-us" element={<MissionVision />} />
+
         <Route path="/food-partner" element={<FoodPartner />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/contact" element={<ContactUs />} />
