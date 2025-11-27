@@ -162,7 +162,7 @@ const Footer = () => (
                 </a>
               </li>
               <li>
-                <a href="/contact" className="footer-link">
+                <a href="contact" className="footer-link">
                   <svg
                     width="16"
                     height="16"
@@ -176,7 +176,7 @@ const Footer = () => (
                 </a>
               </li>
               <li>
-                <a href="/food-partner" className="footer-link">
+                <a href="food-partner" className="footer-link">
                   <svg
                     width="16"
                     height="16"
