@@ -1,5 +1,6 @@
 import React from "react";
-import "./Footer.css";
+import "./Footer.css"; 
+import {Link} from "react-router-dom";
 
 const Footer = () => (
   <footer className="footer-enhanced">
@@ -162,7 +163,7 @@ const Footer = () => (
                 </a>
               </li>
               <li>
-                <a href="contact" className="footer-link">
+                <Link to="/contact" className="footer-link">
                   <svg
                     width="16"
                     height="16"
@@ -173,10 +174,10 @@ const Footer = () => (
                     <polyline points="9 18 15 12 9 6" />
                   </svg>
                   Contact Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="food-partner" className="footer-link">
+                <Link to="/food-partner" className="footer-link">
                   <svg
                     width="16"
                     height="16"
@@ -187,7 +188,7 @@ const Footer = () => (
                     <polyline points="9 18 15 12 9 6" />
                   </svg>
                   Food Partner
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -197,7 +198,7 @@ const Footer = () => (
             <h3 className="footer-title">Account</h3>
             <ul className="footer-links">
               <li>
-                <a href="/login" className="footer-link">
+                <Link to="/login" className="footer-link">
                   <svg
                     width="16"
                     height="16"
@@ -208,10 +209,10 @@ const Footer = () => (
                     <polyline points="9 18 15 12 9 6" />
                   </svg>
                   Login
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/register" className="footer-link">
+                <Link to="/register" className="footer-link">
                   <svg
                     width="16"
                     height="16"
@@ -222,7 +223,7 @@ const Footer = () => (
                     <polyline points="9 18 15 12 9 6" />
                   </svg>
                   Register
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="#" className="footer-link">
