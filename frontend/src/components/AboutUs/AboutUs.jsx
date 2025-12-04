@@ -342,9 +342,9 @@ const AboutUs = () => {
                  <Link to="/register"className="cta-btn primary">
                   Get Started Today
                 </Link>
-                <a href="/contact" className="cta-btn secondary">
+                <Link to="/contact" className="cta-btn secondary">
                   Contact Us
-                </a>
+                </Link>
               </div>
             </div>
           </div>
