@@ -34,7 +34,7 @@ const Hero = () => {
             </p>
 
             <div className="hero-buttons">
-              <a href="/login" className="hero-btn hero-btn-primary">
+               <Link to="/login" className="hero-btn hero-btn-primary">
                 Donate Food Today
                 <svg
                   width="20"
@@ -48,11 +48,11 @@ const Hero = () => {
                     clipRule="evenodd"
                   />
                 </svg>
-              </a>
+              </Link>
 
-              <a href="#learn-more" className="hero-btn hero-btn-secondary">
+               <Link to="/about-us" className="hero-btn hero-btn-secondary">
                 Learn More
-              </a>
+              </Link>
             </div>
 
             {/* Stats */}
