@@ -339,9 +339,9 @@ const AboutUs = () => {
                 no one goes hungry.
               </p>
               <div className="cta-buttons">
-                <a href="/register" className="cta-btn primary">
+                 <Link to="/register"className="cta-btn primary">
                   Get Started Today
-                </a>
+                </Link>
                 <a href="/contact" className="cta-btn secondary">
                   Contact Us
                 </a>
