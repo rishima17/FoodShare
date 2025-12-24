@@ -14,7 +14,7 @@ const Hero = () => {
         <div className="hero-grid">
           {/* Left Content */}
           <div className="hero-content-enhanced">
-            <div className="hero-badge">🌱 Make a Difference Today</div>
+            <div className="hero-badge">🤝 Make a Difference Today</div>
 
             <h1 className="hero-title">
               Connecting{" "}
