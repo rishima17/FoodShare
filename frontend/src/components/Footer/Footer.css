@@ -158,19 +158,20 @@
 }
 
 .social-link {
+  background: transparent;
+  border: none;
   width: auto;
   height: auto;
-  background: transparent;
   border-radius: 0;
-  border: none;
 
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
 
   color: var(--white);
-  transition: all 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
+
 
 
 .social-link:hover {
