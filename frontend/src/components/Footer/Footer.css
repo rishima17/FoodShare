@@ -158,17 +158,20 @@
 }
 
 .social-link {
-  width: 45px;
-  height: 45px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
+  width: auto;
+  height: auto;
+  background: transparent;
+  border-radius: 0;
+  border: none;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   color: var(--white);
   transition: all 0.3s ease;
-  border: 2px solid transparent;
 }
+
 
 .social-link:hover {
   background: var(--accent-green);
