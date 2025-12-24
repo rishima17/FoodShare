@@ -107,11 +107,7 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* Floating Badge */}
-            <div className="hero-floating-badge">
-              <div className="hero-floating-icon">🤝</div>
-              <div className="hero-floating-text">Join Us</div>
-            </div>
+            
           </div>
         </div>
       </div>
